@@ -26,11 +26,11 @@ import joblib
 import numpy as np
 
 # Load model
-model = load_model("saved_models_coughvidaug/coughvidaugdcap_model_fold_1.h5")
+model = load_model("saved_models/saved_models_cosw/coswdcap_model_fold_1.h5")
 
 # Load data (if provided)
-X = joblib.load("COVID7X_SMOTE.joblib")
-y = joblib.load("COVID7Y_SMOTE.joblib")
+X = joblib.load("COSWARA_X.joblib")
+y = joblib.load("COSWARA_Y.joblib")
 
 # Predict
 predictions = np.argmax(model.predict(X), axis=1)
