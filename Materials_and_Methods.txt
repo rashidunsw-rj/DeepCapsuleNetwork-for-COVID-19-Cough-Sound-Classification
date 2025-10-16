@@ -1,0 +1,22 @@
+### Materials and Methods
+
+#### Datasets
+The study utilized two publicly available cough datasets:
+- **COSWARA Dataset** (https://doi.org/10.48550/arXiv.2005.10548)
+- **COUGHVID Dataset** (https://doi.org/10.48550/arXiv.2006.04342)
+
+Each cough recording was preprocessed using Librosa, followed by data augmentation through pitch shifting, additive noise, and time stretching. Feature extraction included MFCCs, chroma, mel-spectrogram, tonnetz, and spectral contrast features. The dataset was balanced using the Synthetic Minority Over-sampling Technique (SMOTE).
+
+#### Model Description
+The proposed **DeepCapsNet** integrates 1D convolutional layers for local feature learning and capsule layers for hierarchical representation. The network includes dropout regularization and uses the Adam optimizer (learning rate = 0.0001).  
+The model was trained using **Stratified K-Fold cross-validation**, and each trained model (.h5) corresponding to a fold is provided.
+
+#### Evaluation Method
+Evaluation was performed on both COSWARA and COUGHVID datasets to compare the proposed **DeepCapsNet** with baseline CNN models. Metrics include:
+- Accuracy  
+- Confusion Matrix  
+- RMSE per class  
+- G-Mean  
+- 95% Confidence Intervals  
+
+All experiments were implemented using Python (TensorFlow, scikit-learn, and NumPy).
